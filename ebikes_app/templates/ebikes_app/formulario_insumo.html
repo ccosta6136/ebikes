@@ -1,0 +1,17 @@
+{% extends "ebikes_app/base.html" %}
+
+
+{% block cuerpo  %}
+<h1>Insumo</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        {{mi_formulario}}
+        
+        <button type="submit">Enviar</button>
+        <button type="reset">Borrar</button>
+        
+    </form>
+    
+    <h2>{{mensaje}}</h2>
+{% endblock %}

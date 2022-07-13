@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>Búsqueda</title>
+</head>
+<body>
+{% extends "ebikes_app/base.html" %}   
+{% block cuerpo  %}
+
+<h1>BUSQUEDA TU BICILETA</h1>
+
+
+<form action="" method="GET">
+    {{busqueda_formulario}}
+    <button type="submit">Buscar</button>
+    <button type="reset">Borrar</button>
+</form>
+{% if buscado %}
+{% if bicicletas %}
+
+<table class="table">
+    <thead>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Rodado</th>
+        <th scope="col">Precio</th>
+    </thead>
+    <tbody>
+        {% for bicicleta in bicicletas %}
+        <tr>
+            <td>{{bicicleta.marca}}</td>
+            <td>{{bicicleta.modelo}}</td>
+            <td>{{bicicleta.rodado}}</td>
+            <td>{{bicicleta.precio}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <h1> No hay bicicletas con ese criterio !!</h1>
+
+{% endif %}
+{% endif %}
+
+{% endblock %}
+
+</body>
+</html>
